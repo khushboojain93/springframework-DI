@@ -1,6 +1,7 @@
 package com.infogain.springframeworkdi;
 
 import com.infogain.springframeworkdi.controller.ConstructorInjectedController;
+import com.infogain.springframeworkdi.controller.PrimaryController;
 import com.infogain.springframeworkdi.controller.PropertyInjectedController;
 import com.infogain.springframeworkdi.controller.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,10 @@ public class SpringframeworkDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx=SpringApplication.run(SpringframeworkDiApplication.class, args);
+
+		PrimaryController primaryController=(PrimaryController)ctx.getBean("primaryController") ;
+		System.out.println("-----------Primary Bean----------");
+		System.out.println(primaryController.getGreeting());
 
 		PropertyInjectedController propertyInjectedController=(PropertyInjectedController)ctx.getBean("propertyInjectedController");
 
