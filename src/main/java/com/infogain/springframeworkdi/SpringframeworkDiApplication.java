@@ -1,9 +1,6 @@
 package com.infogain.springframeworkdi;
 
-import com.infogain.springframeworkdi.controller.ConstructorInjectedController;
-import com.infogain.springframeworkdi.controller.PrimaryController;
-import com.infogain.springframeworkdi.controller.PropertyInjectedController;
-import com.infogain.springframeworkdi.controller.SetterInjectedController;
+import com.infogain.springframeworkdi.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,10 @@ public class SpringframeworkDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx=SpringApplication.run(SpringframeworkDiApplication.class, args);
+
+        I18nController i18nController=(I18nController) ctx.getBean("i18nController") ;
+        System.out.println("INternationalization controller is calling the profile activated service now");
+        System.out.println(i18nController.getGreeting());
 
 		PrimaryController primaryController=(PrimaryController)ctx.getBean("primaryController") ;
 		System.out.println("-----------Primary Bean----------");
